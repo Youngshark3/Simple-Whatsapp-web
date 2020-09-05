@@ -1,0 +1,322 @@
+<html>
+    <head>
+        <title>WhatsApp Clone</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.main.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <!--
+            Some of the settings work, so be sure to check them out.
+        
+            Creator:Royford Wanyoike
+            
+            UPDATES:
+              -switch between chat, status and calls.
+              -you can create groups now.(they appear at the bottom of the screen)
+              -search bar is there
+              -there is the settings page.
+              -you can delete phone calls.
+              -tap the users images to see profile
+              -loading screen (logo) added.
+              -icons updated.
+              -camera (replacement).
+        -->
+    <div id="fullCode">
+    <!--Green navigation-->
+        <nav>
+            <h3>ROy-WhatsApp</h3>
+            <i class="fas fa-search" onclick="search()" id="search"></i>
+            <div id="dots" onclick="settings(1,'0')">.</div>
+            <div id="navigation">
+                <i onclick="camera()" class="fa fa-camera" id="camera"></i>
+                <div onclick="chat()">Chats</div>
+                    <div onclick="status()">Status</div>
+                    <div onclick="calls()">Calls</div>
+            </div>
+            
+            <div onmouseleave="settings(0,&quot;0 0 0 50%&quot;)" id="settings">
+                <p onclick="createGroup()">New Group</p>
+                <p>New Broadcast</p>
+                <p>WhatsApp Web</p>
+                <p>Marked Messages</p>
+                <p onclick="showSettings(0)">Settings</p>
+            </div>
+            <div id="searchDiv">
+                <p id="greenArrow" onclick="stopSearch()"><i class="fas fa-arrow-left"></i></p>
+                <input type="text" id="searchInp" onchange="emptySearch()" placeholder=" Search...">
+            </div>
+            
+            <div id="whiteBar"></div>
+        </nav>
+    <!--end green navigation-->
+    <!--Begin Chats-->
+        <div id="others">
+            <div class="user">
+                <img onclick="showImage('https://www.sololearn.com/Icons/Avatars/12846572.jpg')" src="https://www.sololearn.com/Icons/Avatars/12846572.jpg" alt="photo">
+                <h3>Clive Wegulo</h3>
+                <p>I want to be a software engineer.</p>
+                <h5>07.09.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user2">
+                <img onclick="showImage(&quot;https://www.sololearn.com/Icons/Avatars/9666499.jpg&quot;)" src="https://www.sololearn.com/Icons/Avatars/9666499.jpg" alt="photo">
+                <h3>Alex</h3>
+                <p>I don't know. 😂</p>
+                <h5>07.09.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user3">
+                <img onclick="showImage(&quot;https://www.sololearn.com/Icons/Avatars/10887361.jpg&quot;)" src="https://www.sololearn.com/Icons/Avatars/10887361.jpg" alt="photo">
+                <h3>Harun Grayhat</h3>
+                <p>Check out this Database lesson</p>
+                <h5>25.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user4">
+                <img onclick="showImage(&quot;https://www.sololearn.com/Icons/Avatars/12942084.jpg&quot;)" src="https://www.sololearn.com/Icons/Avatars/12942084.jpg" alt="photo">
+                <h3>Qute lady💕</h3>
+                <p><i class="material-icons">done_all</i>Sorry for answering late.😅</p>
+                <h5>18.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user5">
+                <img onclick="showImage(&quot;https://api.sololearn.com/Uploads/Avatars/1.jpg&quot;)" src="https://api.sololearn.com/Uploads/Avatars/1.jpg" alt="photo">
+                <h3>Empress</h3>
+                <p>There is ...</p>
+                <h5>17.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user6">
+                <img onclick="showImage(&quot;https://www.sololearn.com/Icons/Avatars/4991698.jpg&quot;)" src="https://www.sololearn.com/Icons/Avatars/4991698.jpg" alt="photo">
+                <h3>Rick</h3>
+                <p><i class="material-icons">done_all</i>Just reached 20.3K!</p>
+                <h5>15.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user7">
+                <img onclick="showImage(&quot;https://www.sololearn.com/Icons/Avatars/13299247.jpg&quot;)" src="https://www.sololearn.com/Icons/Avatars/13299247.jpg" alt="photo">
+                <h3>Dj YungMorfah</h3>
+                <p>I am not sure when I will be back. I got several shows😩</p>
+                <h5>12.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user8">
+                <img onclick="showImage(&quot;https://code.sololearn.com/Icons/Avatars/2200299.jpg&quot;)" src="https://code.sololearn.com/Icons/Avatars/2200299.jpg" alt="photo">
+                <h3>Christine</h3>
+                <p>I hate love lol!</p>
+                <h5>10.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user9">
+                <img onclick="showImage(&quot;https://code.sololearn.com/Icons/Avatars/12458983.jpg&quot;)" src="https://code.sololearn.com/Icons/Avatars/12458983.jpg" alt="photo">
+                <h3>Sipendi Supu ya Kuku</h3>
+                <p id="type" style="color:green">Typing</p>
+                <h5>7.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user10">
+                <img onclick="showImage(&quot;https://www.sololearn.com/Icons/Avatars/9223786.jpg&quot;)" src="https://www.sololearn.com/Icons/Avatars/9223786.jpg" alt="photo">
+                <h3>Damian</h3>
+                <p><i class="material-icons">done_all</i>Yeah.</p>
+                <h5>7.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user11">
+                <img onclick="showImage(&quot;https://code.sololearn.com/Icons/Avatars/100073.jpg&quot;)" src="https://www.sololearn.com/Icons/Avatars/100073.jpg" alt="photo">
+                <h3>Mustafa</h3>
+                <p>I went home</p>
+                <h5>5.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user12">
+                <img onclick="showImage(&quot;https://www.sololearn.com/Icons/Avatars/14229595.jpg&quot;)" src="https://www.sololearn.com/Icons/Avatars/14229595.jpg" alt="photo">
+                <h3>J N</h3>
+                <p>How is the Contest?</p>
+                <h5>5.08.2020</h5>         
+                <div class="line"></div>
+            </div>
+        </div>
+        
+        <!--Begin Status-->
+        <div id="status">
+            <div class="user" id="userEndless">
+                <img src="https://www.sololearn.com/Icons/Avatars/7938943.jpg" alt="photo">
+                <h3>My Status</h3>
+                <p>Just now</p>
+                <h5>26.08.2020</h5>
+                <div class="line"></div>
+            </div>
+        </div>
+        
+        
+        <!--Begin Calls-->
+        <div id="calls">
+            <div class="user" id="user2call">
+                <img src="https://www.sololearn.com/Icons/Avatars/13299247.jpg" alt="photo">
+                <h3>B</h3>
+                <p><span style="color:green;"><i class="fas fa-arrow-left"></i></span> 26 August, 17:45</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user3call">
+                <img src="https://code.sololearn.com/Icons/Avatars/14077830.jpg" alt="photo">
+                <h3>Oma</h3>
+                <p><span style="color:green;"><i class="fas fa-arrow-right"></i></span> 25 August, 18:50</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user4call">
+                <img src="https://www.sololearn.com/Icons/Avatars/4991698.jpg" alt="photo">
+                <h3>Brayo Koech</h3>
+                <p><span style="color:green;"><i class="fas fa-arrow-left"></i></span> 24 August, 16:20</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user5call">
+                <img src="https://www.sololearn.com/Icons/Avatars/10887361.jpg" alt="photo">
+                <h3>Joel</h3>
+                <p><span style="color:red;"><i class="fas fa-arrow-left"></i></span> 22 August, 21:35</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user6call">
+                <img src="https://www.sololearn.com/Icons/Avatars/12410955.jpg" alt="photo">
+                <h3>Toto</h3>
+                <p><span style="color:red;"><i class="fas fa-arrow-right"></i></span> 21 August, 10:05</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user7call">
+                <img src="https://www.sololearn.com/Icons/Avatars/7885877.jpg" alt="photo">
+                <h3>Y B</h3>
+                <p><span style="color:red;"><i class="fas fa-arrow-right"></i></span> 21 August, 14:20</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user8call">
+                <img src="https://www.sololearn.com/Icons/Avatars/12875805.jpg" alt="photo">
+                <h3>Njoki</h3>
+                <p><span style="color:green;"><i class="fas fa-arrow-right"></i></span> 19 August, 10:45</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user9call">
+                <img src="https://www.sololearn.com/Icons/Avatars/3124142.jpg" alt="photo">
+                <h3>Harriet</h3>
+                <p><span style="color:red;"><i class="fas fa-arrow-left"></i></span> 17 August, 7:30</p>
+                 <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user10call">
+                <img src="https://www.sololearn.com/Icons/Avatars/6690871.jpg" alt="photo">
+                <h3>Roy Somo</h3>
+                <p><span style="color:green;"><i class="fas fa-arrow-right"></i></span> 13 August, 18:25</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user11call">
+                <img src="https://www.sololearn.com/Icons/Avatars/100073.jpg" alt="photo">
+                <h3>Jay</h3>
+                <p><span style="color:green;"><i class="fas fa-arrow-right"></i></span> 1 April, 12:50</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            <br><br>
+        </div>
+        
+        <div id="Camera">
+            <br>
+            <h3>Your battery is low.<br><br>Please charge your phone to continue</h3>
+        </div>
+        <!--green circle-->
+        <div id="greenCircle">
+            <i class="material-icons">chat</i>
+        </div>
+        
+        
+        
+        <!--settings-->
+        <div id="settingsPage">
+            <div id="greenThing2">
+                <pre onclick="showSettings(100)"> <i class="fas fa-arrow-left"></i>  Settings</pre>
+            </div>
+            <div id="realSettings">
+                <div class="user" style="top:10%;">
+                    <img src="https://www.sololearn.com/Icons/Avatars/7938943.jpg" alt="photo">
+                    <h3>Pumpum</h3>
+                    <p>Hi there. I am using WhatsApp</p>
+                    <div class="line"></div>
+                </div>
+            
+            <div class="user" style="top:30%;">
+                    <i class="fas fa-key"></i>
+                    <h3>Account</h3>
+                    <p>Security, change number.</p>
+            </div>
+            <div class="user" style="top:50%;">
+                    <i class="material-icons mess">chat</i>
+                    <h3>Chats</h3>
+                    <p>Backup, history, groups and calls.</p>
+            </div>
+            <div class="user" style="top:70%;">
+                    <i class="fas fa-bell"></i>
+                    <h3>Notifications</h3>
+                    <p>Messages, groups and calls</p>
+            </div>
+            <div class="user" style="top:90%;">
+                    <i class="material-icons data">data_usage</i>
+                    <h3>Use of data and space</h3>
+                    <p>Security, change number.</p>
+            </div>
+            <div class="user" style="top:110%;">
+                    <i class="material-icons helpI">help_outline</i>
+                    <h3>Help</h3>
+                    <p>Questions, contact.</p>
+                    <div class="line"></div>
+            </div>
+            <div class="user" style="top:130%;">
+                    <i class="fas fa-user-friends"></i><br>
+                    <h3>Invite a friend</h3>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div id="userProfile">
+            <img src="https://www.sololearn.com/Icons/Avatars/13786695.jpg" id="profile">
+            <img src="https://imgur.com/vi4iA7Q.jpg" id="downPath">
+        </div>
+        
+    </div>
+    
+    <!--Loading screen-->
+    <div id="loadingScreen">
+        <img src="https://imgur.com/oV1pzoE.jpg">
+        <div id="loadText">From <br><span>Facebook</span></div>
+    </div>
+    
+
+
+</body>
+</html>
